@@ -9,9 +9,16 @@
 			#pragma vertex vert
 			#pragma fragment frag
 
-			float4 vert (float4 v : POSITION) : SV_POSITION
+			struct a2v
 			{
-				return mul (UNITY_MATRIX_MVP, v);
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+				float4 texcoord : TEXCOORD0;
+			};
+
+			float4 vert (a2v v) : SV_POSITION
+			{
+				return mul (UNITY_MATRIX_MVP, v.vertex);
 			}
 
 			fixed4 frag () : SV_Target
