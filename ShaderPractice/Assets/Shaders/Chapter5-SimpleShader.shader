@@ -16,14 +16,23 @@
 				float4 texcoord : TEXCOORD0;
 			};
 
-			float4 vert (a2v v) : SV_POSITION
+			struct v2f
 			{
-				return mul (UNITY_MATRIX_MVP, v.vertex);
+				float4 pos : SV_POSITION;
+				fixed3 color : COLOR0;
+			};
+
+			v2f vert (a2v v)
+			{
+				v2f o;
+				o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+				o.color = v.normal * 0.5 + fixed3(0.5, 0.5, 0.5);
+				return o;
 			}
 
-			fixed4 frag () : SV_Target
+			fixed4 frag (v2f i) : SV_Target
 			{
-				return fixed4(1.0, 1.0, 1.0, 1.0);
+				return fixed4(i.color, 1.0);
 			}
 
 			ENDCG
