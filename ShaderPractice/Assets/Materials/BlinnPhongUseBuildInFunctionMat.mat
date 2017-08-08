@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BlinnPhongSpecularMat
-  m_Shader: {fileID: 4800000, guid: b005a3e6126844b24b55cfc59819082f, type: 3}
+  m_Name: BlinnPhongUseBuildInFunctionMat
+  m_Shader: {fileID: 4800000, guid: 27a3f8f86262d4c619fccd72168cd9d6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
