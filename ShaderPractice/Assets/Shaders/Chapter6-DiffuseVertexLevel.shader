@@ -1,4 +1,4 @@
-﻿Shader "Unity Shaders Book/Chapter 6/Diffuse Vertex Level"
+﻿Shader "Unity Shaders Book/Chapter 6/Diffuse Vertex-Level"
 {
 	Properties
 	{

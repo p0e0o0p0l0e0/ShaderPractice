@@ -1,4 +1,4 @@
-﻿Shader "Unity Shaders Book/Chapter 6/Half Lambert"
+﻿Shader "Unity Shaders Book/Chapter 6/Half-Lambert"
 {
 	Properties
 	{
