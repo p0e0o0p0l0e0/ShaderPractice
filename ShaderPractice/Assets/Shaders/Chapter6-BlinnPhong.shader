@@ -40,7 +40,7 @@
 			{
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-				o.worldNormal = mul((float3x3)_World2Object, v.normal);
+				o.worldNormal = mul(v.normal, (float3x3)_World2Object);
 				o.worldPos = mul(_Object2World, v.vertex).xyz;
 				return o;
 			}

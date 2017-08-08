@@ -40,9 +40,11 @@
 			{
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-				o.worldNormal = UnityObjectToWorldNormal(v.normal);
-				o.worldPos = UnityObjectToWorldDir(v.vertex);
-//				o.worldPos = mul((float3x3)_Object2World, v.vertex).xyz;
+				o.worldNormal = UnityObjectToWorldNormal(v.normal); // 效果与下一行相同，因为是矢量变换，用3x3变换矩阵即可。
+//				o.worldNormal = mul(v.normal, (float3x3)_World2Object);
+//				o.worldPos = UnityObjectToWorldDir(v.vertex); // normalize(mul((float3x3)_Object2World, dir));效果与下一行不同
+//				o.worldPos = mul(v.vertex, transpose(_Object2World)).xyz; // 将坐标左乘，将模型空间坐标转换到世界空间，与下式相等
+				o.worldPos = mul(_Object2World, v.vertex).xyz; // 将坐标右乘，将模型空间坐标转换到世界空间
 				return o;
 			}
 

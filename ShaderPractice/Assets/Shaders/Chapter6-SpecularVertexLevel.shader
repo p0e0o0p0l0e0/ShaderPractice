@@ -40,7 +40,7 @@
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
-				fixed3 worldNormal = normalize(mul((float3x3)_Object2World, v.normal)); // 11111
+				fixed3 worldNormal = normalize(mul(v.normal, (float3x3)_World2Object)); // 11111
 				fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
 				fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));
 				fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));
