@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: HalfLambertMat
-  m_Shader: {fileID: 4800000, guid: 09cd0d0e5c10a45e8a5945130a87a3b7, type: 3}
+  m_Name: HalfLambertSpecularMat
+  m_Shader: {fileID: 4800000, guid: 42490f05e2f3d4b55b677781dd5e3c53, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -127,6 +127,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _Gloss
+        second: 20
     m_Colors:
       data:
         first:
@@ -140,3 +144,7 @@ Material:
         first:
           name: _Diffuse
         second: {r: 1, g: 0.5514706, b: 0.5514706, a: 1}
+      data:
+        first:
+          name: _Specular
+        second: {r: 1, g: 1, b: 1, a: 1}
