@@ -39,7 +39,7 @@
 
 			struct v2f{
 				float4 pos : SV_POSITION;
-				float4 uv : TEXCOORD0;		// 为什么不是float2 ？？？？？？？
+				float4 uv : TEXCOORD0;		// 为什么不是float2 ？同时存储法线贴图数据，节省插值寄存器空间
 				float3 lightDir : TEXCOORD1;
 				float3 viewDir : TEXCOORD2;
 			};
@@ -119,7 +119,7 @@
 
 				fixed4 packedNormal = tex2D(_BumpMap, i.uv.zw);
 				fixed3 tangentNormal;
-//				tangentNormal.xy = (packedNormal * 2 - 1) * _BumpScale;
+//				tangentNormal.xy = (packedNormal * 2 - 1) * _BumpScale; // 贴图未设置为NormalMap时使用
 				tangentNormal = UnpackNormal(packedNormal);
 				tangentNormal.xy *= _BumpScale;
 				tangentNormal.z = sqrt(1.0 - saturate(dot(tangentNormal.xy, tangentNormal.xy)));
