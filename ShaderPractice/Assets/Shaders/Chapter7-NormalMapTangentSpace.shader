@@ -119,7 +119,7 @@
 
 				fixed4 packedNormal = tex2D(_BumpMap, i.uv.zw);
 				fixed3 tangentNormal;
-//				tangentNormal.xy = (packedNormal * 2 - 1) * _BumpScale; // 贴图未设置为NormalMap时使用
+//				tangentNormal.xy = (packedNormal.xy * 2 - 1) * _BumpScale; // 贴图未设置为NormalMap时使用
 				tangentNormal = UnpackNormal(packedNormal);
 				tangentNormal.xy *= _BumpScale;
 				tangentNormal.z = sqrt(1.0 - saturate(dot(tangentNormal.xy, tangentNormal.xy)));

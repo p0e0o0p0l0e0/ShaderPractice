@@ -73,7 +73,9 @@
 
 				fixed3 bump = UnpackNormal(tex2D(_BumpMap, i.uv.zw));
 				bump.xy *= _BumpScale;
-				bump.z = sqrt(1.0 - saturate(dot(bump.xy, bump.xy)));
+//				bump.z = sqrt(1.0 - saturate(dot(bump.xy, bump.xy)));
+				bump = normalize(bump);
+
 				bump = normalize(half3(dot(i.TtoW0.xyz, bump), dot(i.TtoW1.xyz, bump), dot(i.TtoW2.xyz, bump)));
 
 				fixed3 albedo = tex2D(_MainTex, i.uv).rgb * _Color.rgb;
