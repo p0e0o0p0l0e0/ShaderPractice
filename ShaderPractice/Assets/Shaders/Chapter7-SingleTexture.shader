@@ -48,6 +48,9 @@
 				o.worldNormal = UnityObjectToWorldNormal(v.normal); // 效果相同，因为是矢量变换，用3x3变换矩阵即可。
 				o.worldPos = mul(_Object2World, v.vertex).xyz; // 将坐标右乘，将模型空间坐标转换到世界空间
 //				o.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw; // 对纹理坐标乘以缩放属性，加上偏移属性
+				// 假设tiling设置为3，3， offset设置为0.2。那么uv本来是0-1，现在变为0.2到3.2.
+				// 如果图片设置成Clamp，那么uv超过1的部分就会按1来算。如果Texture设置成repeat，那么就会去掉整数部分去纹理中采样。
+				
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex); // 等价于上句
 				return o;
 			}
