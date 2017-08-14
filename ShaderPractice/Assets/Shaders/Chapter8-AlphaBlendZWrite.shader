@@ -21,7 +21,7 @@
 			Tags { "LightMode"="ForwardBase" }
 
 //			ZWrite Off
-//			Blend SrcAlpha OneMinusSrcAlpha // 正常
+			Blend SrcAlpha OneMinusSrcAlpha // 正常
 //			Blend OneMinusDstColor One 	// 柔和相加 soft additive
 //			Blend DstColor Zero // 正片叠底，即相乘
 //			Blend DstColor SrcColor // 两倍相乘 
@@ -31,7 +31,7 @@
 //			Blend One One
 //			Blend OneMinusDstColor One
 //			Blend One OneMinusSrcColor
-			Blend One One
+//			Blend One One
 
 			CGPROGRAM
 
@@ -83,7 +83,7 @@
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 				fixed3 diffuse = _LightColor0 * albedo * max(0, dot(worldNormal, worldLightDir) * 0.5 + 0.5);
 
-				return fixed4 (ambient + diffuse, texColor.a * _AlphaScale);
+				return fixed4 (ambient + diffuse, texColor.a * _AlphaScale * _Color.a);
 			}
 
 			ENDCG
