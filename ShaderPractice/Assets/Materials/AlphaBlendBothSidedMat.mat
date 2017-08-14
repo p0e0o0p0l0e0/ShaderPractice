@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AlphaBlendMat
-  m_Shader: {fileID: 4800000, guid: 001500b26a43b4b72b8a6b77e57e6c99, type: 3}
+  m_Name: AlphaBlendBothSidedMat
+  m_Shader: {fileID: 4800000, guid: 7ad49f182f03f4c0e966f5fee1e62f95, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: fdf2b826c1e3b4c08986403bbe44a6b9, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -127,10 +127,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _AlphaScale
-        second: 0.74
     m_Colors:
       data:
         first:
