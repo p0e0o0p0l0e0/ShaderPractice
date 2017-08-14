@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AlphaBlendMat
-  m_Shader: {fileID: 4800000, guid: 001500b26a43b4b72b8a6b77e57e6c99, type: 3}
+  m_Name: AlphaBlendZWriteMat
+  m_Shader: {fileID: 4800000, guid: 2341aadf1b43d4f53928622abe158089, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -130,7 +130,7 @@ Material:
       data:
         first:
           name: _AlphaScale
-        second: 0.74
+        second: 0.57
     m_Colors:
       data:
         first:
@@ -139,4 +139,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 1, g: 0.5955882, b: 0.5955882, a: 1}
