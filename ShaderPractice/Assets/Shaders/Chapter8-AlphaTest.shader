@@ -3,7 +3,7 @@
 	Properties
 	{
 		_Color ("Color Tint", Color) = (1, 1, 1, 1)
-		_MainTex ("Texture", 2D) = "white" {}
+		_MainTex ("Main Tex", 2D) = "white" {}
 		_Cutoff ("Alpha Cutoff", Range(0, 1)) = 0.5
 	}
 	SubShader
@@ -70,12 +70,12 @@
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 				fixed3 diffuse = _LightColor0 * albedo * max(0, dot(worldNormal, worldLightDir) * 0.5 + 0.5);
 
-				return fixed4 (ambient + diffuse,1.0);
+				return fixed4 (ambient + diffuse, 1.0);
 			}
 
 			ENDCG
 		}
 	}
 
-//	FallBack "Transparent/Cutout/VertexLit"
+	FallBack "Transparent/Cutout/VertexLit"
 }
