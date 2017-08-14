@@ -21,7 +21,17 @@
 			Tags { "LightMode"="ForwardBase" }
 
 //			ZWrite Off
-			Blend SrcAlpha OneMinusSrcAlpha
+//			Blend SrcAlpha OneMinusSrcAlpha // 正常
+//			Blend OneMinusDstColor One 	// 柔和相加 soft additive
+//			Blend DstColor Zero // 正片叠底，即相乘
+//			Blend DstColor SrcColor // 两倍相乘 
+//			BlendOp Min // 变暗
+//			Blend One One
+//			BlendOp Max // 变亮
+//			Blend One One
+//			Blend OneMinusDstColor One
+//			Blend One OneMinusSrcColor
+			Blend One One
 
 			CGPROGRAM
 
