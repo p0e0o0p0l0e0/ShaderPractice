@@ -14,6 +14,8 @@
 		{
 			Tags { "LightMode"="ForwardBase" }
 
+			Cull Off
+
 			CGPROGRAM
 
 			#pragma vertex vert
