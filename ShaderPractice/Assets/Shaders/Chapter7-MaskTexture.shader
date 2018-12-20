@@ -1,4 +1,6 @@
-﻿Shader "Unity Shaders Book/Chapter 7/Mask Texture"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Unity Shaders Book/Chapter 7/Mask Texture"
 {
 	Properties
 	{
@@ -53,7 +55,7 @@
 			v2f vert (a2v v)
 			{
 				v2f o;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 
 				TANGENT_SPACE_ROTATION;

@@ -1,4 +1,8 @@
-﻿Shader "Unity Shaders Book/Chapter 6/Specular Vertex-Level"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Unity Shaders Book/Chapter 6/Specular Vertex-Level"
 {
 	Properties
 	{
@@ -38,13 +42,13 @@
 			v2f vert (a2v v)
 			{
 				v2f o;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
-				fixed3 worldNormal = normalize(mul(v.normal, (float3x3)_World2Object)); // 11111
+				fixed3 worldNormal = normalize(mul(v.normal, (float3x3)unity_WorldToObject)); // 11111
 				fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
 				fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));
 				fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));
-				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(_Object2World, v.vertex).xyz); // 22222
+				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, v.vertex).xyz); // 22222
 				fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(saturate(dot(reflectDir, viewDir)) , _Gloss);
 
 				o.color = ambient + diffuse + specular;
